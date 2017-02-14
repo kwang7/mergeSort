@@ -1,18 +1,25 @@
 /*======================================
   class MergeSortTester
 
-  ALGORITHM:
+ALGORITHM:
+Sort:
   1. If the length of the array is 1, mergeSort returns the array
   2. If the length of the array is greater than 1, it creates an array called leftHalf that
 	 is the size of the original array divided by 2 (half of the length if even, one less than
 	 half if it's odd), and fills the array by copying the first half of the elements of the 
 	 original. It then creates a second array called rightHalf, which is the size of the original
 	 minus the size of leftHalf, and fills it with the remaining elements. It then calls merge for
-	 both of the arrays.
+	 the arrays.
 	 
   Merge:
-  
-  <INSERT YOUR DISTILLATION OF ALGO HERE>
+  1. Create counters for both lists a and b and set them to 0. Create a new array. The size of the new
+    array is the length of both of the small arrays added together.
+  2. While both of the counters are less than the lengths of their lists, find which of the elements 
+  at those counters is smaller. Add the element that is smaller to the array and increase the counter
+  for the array it came from by 1.
+  3. When one of the counters reaches the length of its array, check to see if one of the arrays’ 
+  counters still hasn’t reached the length. Add the remaining elements in that array to the end of the sorted array. Return the array.
+
 
   BIG-OH CLASSIFICATION OF ALGORITHM:
   <INSERT YOUR EXECUTION TIME CATEGORIZATION OF MERGESORT HERE>
