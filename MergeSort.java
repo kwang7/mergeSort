@@ -1,24 +1,26 @@
-//Manahal Tabassum
-//APCS2 pd1
-//HW06 -- Step 1: Split, Step 2: ?, Step 3: Sorted!
-//2017-02-13
-
 /*======================================
+  Kelly Wang
+  APCS2 pd1
+  HW #06: Step 1: Split, Step 2: ?, Step 3: Sorted!. . .
+  2017-02-13
+
   class MergeSort
   Implements mergesort on array of ints.
 
   Summary of Algorithm: 
-  - will return input arr if length is equal to 1
-  - splits the input array into half, until the length of the parts is 1
-  - at this point, it will merge the adjacent parts that were split together so that the 
-    resulting array is sorted
-  - when all the parts are merged successfully, the resulting array will be sorte
+  1. Recieve a list. 
+      a. If that list has a length greater than 1, split it in half and pass each half to two new thinkers. 
+      b. If not, sort the list. Return it to the thinker that gave you the list.
+  2. Recieve two sorted lists. Merge the two lists by
+      a. Comparing the first item in both lists and taking the smaller item.
+      b. Placing the smaller item in a new list. Now repeat step a until one of the lists is empty. When that happens, add the rest of the items of the longer list into the new list.
+      When you finish merging the two lists, pass it back to the first thinker that gave you a list. 
 
   ======================================*/
 
 public class MergeSort {
 
-   /******************************************************
+    /******************************************************
      * int[] merge(int[],int[]) 
      * Merges two input arrays
      * Precond:  Input arrays are sorted in ascending order
@@ -26,39 +28,24 @@ public class MergeSort {
      * output array sorted in ascending order.
      ******************************************************/
     private static int[] merge( int[] a, int[] b ) 
-    { 
-	int[] retArr = new int[a.length + b.length];
+    {
 	int aCounter = 0;
 	int bCounter = 0;
-	int index = 0;
-        while (aCounter < a.length  && bCounter < b.length){
-	    if (a[aCounter] < b[bCounter]){
-		retArr[index] = a[aCounter];
-		index++;
-		aCounter++;
-	    }
-	    else {
-		retArr[index] = b[bCounter];
-		index++;
-		bCounter++;
-	    }
-	}
-	if (aCounter < a.length){
-	    for (int x = aCounter; x < a.length; x++){
-		retArr[index] = a[x];
-		index++;
-	    }
-	}
-	else if (bCounter < b.length){
-	    for (int x = bCounter; x < b.length; x++){
-		retArr[index] = b[x];
-		index++;
-	    }
-	}
-	return retArr;
+	int[] arr = new int[a.length + b.length];
+        for ( int x = 0 ; x < arr.length ; x ++ ) {
+            if ( aCounter >= a.length ) {
+		arr[x] = b[ bCounter ++ ]; }
+            else if ( bCounter >= b.length ){
+		arr[x] = a[ aCounter ++ ];}
+            else if ( a[aCounter] <= b[bCounter] ){
+		arr[x] = a[ aCounter ++ ]; }
+            else {
+		arr[x] = b[ bCounter ++ ];}
+        }
+        return arr;
     }//end merge()
-
-
+    
+    
     /******************************************************
      * int[] sort(int[]) 
      * Sorts input array using mergesort algorithm
@@ -66,27 +53,20 @@ public class MergeSort {
      ******************************************************/
     public static int[] sort( int[] arr ) 
     {
-	if (arr.length == 1){
-	    return arr;
+        if ( arr.length <= 1 ){
+	    return arr; }
+        int[] a = new int[ arr.length/2];
+        int[] b = new int[ arr.length - arr.length/2];
+        for (int i = 0; i < a.length; i++ ) {
+            a[i] = arr[i];
 	}
-	else{
-	    int[] part1 = new int[arr.length/2];
-	    for (int x= 0; x < part1.length; x++){
-		part1[x] = arr[x];
-	    }
-	    int[] part2 = new int[(arr.length)-part1.length];
-	    int counter = 0;
-	    for (int y = part1.length; y<arr.length; y++){
-		part2[counter] = arr[y];
-		counter++;
-	    }
-	    part1 = sort(part1);
-	    part2 = sort(part2);
-	    return merge(part1,part2);
+        for (int i = 0; i < b.length; i++ ) {
+            b[i] = arr[i + arr.length/2];
 	}
+        return merge ( sort(a), sort(b));
     }//end sort()
-
-
+    
+    
 
     //-------------------HELPERS-------------------------
     //tester function for exploring how arrays are passed
@@ -110,33 +90,33 @@ public class MergeSort {
     public static void main( String [] args ) {
 
 
-	int[] arr0 = {0};
-	int[] arr1 = {1};
-	int[] arr2 = {1,2};
-	int[] arr3 = {3,4};
-	int[] arr4 = {1,2,3,4};
-	int[] arr5 = {4,3,2,1};
-	int[] arr6 = {9,42,17,63,0,512,23};
-	int[] arr7 = {9,42,17,63,0,9,512,23,9};
+	  int[] arr0 = {0};
+	  int[] arr1 = {1};
+	  int[] arr2 = {1,2};
+	  int[] arr3 = {3,4};
+	  int[] arr4 = {1,2,3,4};
+	  int[] arr5 = {4,3,2,1};
+	  int[] arr6 = {9,42,17,63,0,512,23};
+	  int[] arr7 = {9,42,17,63,0,9,512,23,9};
 
-	System.out.println("\nTesting mess-with-array method...");
-	printArray( arr3 );
-	mess(arr3);
-	printArray( arr3 );
+	  System.out.println("\nTesting mess-with-array method...");
+	  printArray( arr3 );
+	  mess(arr3);
+	  printArray( arr3 );
 
-	System.out.println("\nMerging arr1 and arr0: ");
-	printArray( merge(arr1,arr0) );
+	  System.out.println("\nMerging arr1 and arr0: ");
+	  printArray( merge(arr1,arr0) );
 
-	System.out.println("\nMerging arr4 and arr6: ");
-	printArray( merge(arr4,arr6) );
+	  System.out.println("\nMerging arr4 and arr6: ");
+	  printArray( merge(arr4,arr6) );
 
-	System.out.println("\nSorting arr4-7...");
-	printArray( sort( arr4 ) );
-	printArray( sort( arr5 ) );
-	printArray( sort( arr6 ) );
-	printArray( sort( arr7 ) );
-
+	  System.out.println("\nSorting arr4-7...");
+	  printArray( sort( arr4 ) );
+	  printArray( sort( arr5 ) );
+	  printArray( sort( arr6 ) );
+	  printArray( sort( arr7 ) );
+	  	/*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
+	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     }//end main()
 
 }//end class MergeSort
-
