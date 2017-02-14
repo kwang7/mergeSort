@@ -68,7 +68,7 @@ public class MergeSort {
 	}
 	else{
 	    int[] leftHalf = new int[arr.length/2];
-	    for (int x= 0; x < part1.length; x++){
+	    for (int x= 0; x < leftHalf.length; x++){
 		leftHalf[x] = arr[x];
 	    }
 	    int[] rightHalf = new int[(arr.length)-leftHalf.length];
