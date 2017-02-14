@@ -41,9 +41,11 @@ public class MergeSortTester
 
     /******************************
      * execution time analysis 
-     * <INSERT YOUR DESCRIPTION HERE OF 
-     *  YOUR APPARATUS FOR GENERATING EXECUTION 
-     *  TIME DATA...>
+	 1. We edited merge() and sort() so that they printed arrays every time arrays were split or 
+		merged. Sorting an array shows how many times is was split/merged.
+	 2. We used currentTimeMillis() to find how long sorting the array actually takes and tested
+		with arrays of different sizes. We tested all of them on the same computer for more accurate
+		results.
      ******************************/
     public static void main( String[] args ) 
     {
