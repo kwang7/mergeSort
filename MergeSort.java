@@ -1,18 +1,15 @@
-//Manahal Tabassum
-//APCS2 pd1
-//HW06 -- Step 1: Split, Step 2: ?, Step 3: Sorted!
-//2017-02-13
-
 /*======================================
   class MergeSort
   Implements mergesort on array of ints.
 
   Summary of Algorithm: 
-  - will return input arr if length is equal to 1
-  - splits the input array into half, until the length of the parts is 1
-  - at this point, it will merge the adjacent parts that were split together so that the 
-    resulting array is sorted
-  - when all the parts are merged successfully, the resulting array will be sorte
+  1. Recieve a list. 
+      a. If that list has a length greater than 1, split it in half and pass each half to two new thinkers. 
+      b. If not, sort the list. Return it to the thinker that gave you the list.
+  2. Recieve two sorted lists. Merge the two lists by
+      a. Comparing the first item in both lists and taking the smaller item.
+      b. Placing the smaller item in a new list. Now repeat step a until one of the lists is empty. When that happens, add the rest of the items of the longer list into the new list.
+      When you finish merging the two lists, pass it back to the first thinker that gave you a list. 
 
   ======================================*/
 
