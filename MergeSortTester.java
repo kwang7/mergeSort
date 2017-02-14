@@ -40,8 +40,15 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
-	int[] tester = new int[]{8,4,6,2,3,7,1,5};
-	MergeSort.sort(tester);
+	int[] tester1 = new int[]{7};
+	int[] tester10 = new int[]{8,4,6,2,9,3,7,1,10,5};
+	System.out.println("Testing mergeSort on array of size 1......\n");
+	System.out.println("Original array: " + MergeSort.printArray(tester1));
+	MergeSort.sort(tester1);
+	System.out.println("\n");
+	System.out.println("Testing mergeSort on array of size 10......\n");
+	System.out.println("Original array: " + MergeSort.printArray(tester10));
+	MergeSort.sort(tester10);
     }//end main
 
 }//end class
