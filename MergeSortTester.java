@@ -2,6 +2,16 @@
   class MergeSortTester
 
   ALGORITHM:
+  1. If the length of the array is 1, mergeSort returns the array
+  2. If the length of the array is greater than 1, it creates an array called leftHalf that
+	 is the size of the original array divided by 2 (half of the length if even, one less than
+	 half if it's odd), and fills the array by copying the first half of the elements of the 
+	 original. It then creates a second array called rightHalf, which is the size of the original
+	 minus the size of leftHalf, and fills it with the remaining elements. It then calls merge for
+	 both of the arrays.
+	 
+  Merge:
+  
   <INSERT YOUR DISTILLATION OF ALGO HERE>
 
   BIG-OH CLASSIFICATION OF ALGORITHM:
