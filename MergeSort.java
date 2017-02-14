@@ -52,6 +52,7 @@ public class MergeSort {
 		index++;
 	    }
 	}
+	System.out.println ("Merged List: " + printArray(retArr));
 	return retArr;
     }//end merge()
 
@@ -71,12 +72,14 @@ public class MergeSort {
 	    for (int x= 0; x < leftHalf.length; x++){
 		leftHalf[x] = arr[x];
 	    }
+	    System.out.println("Left Half: " + printArray(leftHalf));
 	    int[] rightHalf = new int[(arr.length)-leftHalf.length];
 	    int counter = 0;
 	    for (int y = leftHalf.length; y<arr.length; y++){
 		rightHalf[counter] = arr[y];
 		counter++;
 	    }
+	    System.out.println("Right Half: " + printArray(rightHalf));
 	    return merge (sort (leftHalf), sort(rightHalf));
 	}
     }//end sort()
@@ -92,46 +95,15 @@ public class MergeSort {
     }
 
     //helper method for displaying an array
-    public static void printArray( int[] a ) {
-	System.out.print("[");
-	for( int i : a )
-	    System.out.print( i + ",");
-	System.out.println("]");
+    public static String printArray( int[] a ) {
+	String retStr = "[";
+	for( int i : a ){
+	    retStr +=  i;
+	    retStr += " ,";
+	}
+	retStr += "]";
+	return retStr;
     }
     //---------------------------------------------------
-
-
-    //main method for testing
-    public static void main( String [] args ) {
-
-
-	int[] arr0 = {0};
-	int[] arr1 = {1};
-	int[] arr2 = {1,2};
-	int[] arr3 = {3,4};
-	int[] arr4 = {1,2,3,4};
-	int[] arr5 = {4,3,2,1};
-	int[] arr6 = {9,42,17,63,0,512,23};
-	int[] arr7 = {9,42,17,63,0,9,512,23,9};
-
-	System.out.println("\nTesting mess-with-array method...");
-	printArray( arr3 );
-	mess(arr3);
-	printArray( arr3 );
-
-	System.out.println("\nMerging arr1 and arr0: ");
-	printArray( merge(arr1,arr0) );
-
-	System.out.println("\nMerging arr4 and arr6: ");
-	printArray( merge(arr4,arr6) );
-
-	System.out.println("\nSorting arr4-7...");
-	printArray( sort( arr4 ) );
-	printArray( sort( arr5 ) );
-	printArray( sort( arr6 ) );
-	printArray( sort( arr7 ) );
-
-    }//end main()
-
 }//end class MergeSort
 
