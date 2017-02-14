@@ -40,7 +40,8 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
-
+	int[] tester = new int[]{8,4,6,2,3,7,1,5};
+	MergeSort.sort(tester);
     }//end main
 
 }//end class
