@@ -67,19 +67,17 @@ public class MergeSort {
 	    return arr;
 	}
 	else{
-	    int[] part1 = new int[arr.length/2];
+	    int[] leftHalf = new int[arr.length/2];
 	    for (int x= 0; x < part1.length; x++){
-		part1[x] = arr[x];
+		leftHalf[x] = arr[x];
 	    }
-	    int[] part2 = new int[(arr.length)-part1.length];
+	    int[] rightHalf = new int[(arr.length)-leftHalf.length];
 	    int counter = 0;
-	    for (int y = part1.length; y<arr.length; y++){
-		part2[counter] = arr[y];
+	    for (int y = leftHalf.length; y<arr.length; y++){
+		rightHalf[counter] = arr[y];
 		counter++;
 	    }
-	    part1 = sort(part1);
-	    part2 = sort(part2);
-	    return merge(part1,part2);
+	    return merge (sort (leftHalf), sort(rightHalf));
 	}
     }//end sort()
 
