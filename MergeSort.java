@@ -72,14 +72,14 @@ public class MergeSort {
 	    for (int x= 0; x < leftHalf.length; x++){
 		leftHalf[x] = arr[x];
 	    }
-	    System.out.println("Left Half: " + printArray(leftHalf));
 	    int[] rightHalf = new int[(arr.length)-leftHalf.length];
 	    int counter = 0;
 	    for (int y = leftHalf.length; y<arr.length; y++){
 		rightHalf[counter] = arr[y];
 		counter++;
 	    }
-	    System.out.println("Right Half: " + printArray(rightHalf));
+	    System.out.print("Left Half: " + printArray(leftHalf));
+		System.out.println("  Right Half: " + printArray(rightHalf));
 	    return merge (sort (leftHalf), sort(rightHalf));
 	}
     }//end sort()
