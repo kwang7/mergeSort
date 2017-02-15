@@ -50,7 +50,7 @@ public class MergeSortTester
     public static void main( String[] args ) 
     {
 	
-	/*	int[] tester1 = new int[]{7};
+	int[] tester1 = new int[]{7};
 	int[] tester10 = new int[]{8,4,6,2,9,3,7,1,10,5};
 	double a = System.currentTimeMillis();
 	System.out.println("Testing mergeSort on array of size 1......\n");
@@ -65,18 +65,19 @@ public class MergeSortTester
 	System.out.println("Original array: " + MergeSort.printArray(tester10));
 	MergeSort.sort(tester10);
 	double y = System.currentTimeMillis();
-	System.out.println("Time = " + (y-x));*/
+	System.out.println("Time = " + (y-x));
 
-	int[] arr = new int[10000];
+	int[] arr = new int[100];
 	int n = 0;
-	while(n<10000){
-	    arr[n] = (int) (Math.random() * 10000);
+	while(n<100){
+	    arr[n] = (int) (Math.random() * 100);
 	    n++;
 	}
-	double a = System.currentTimeMillis();
+	double m = System.currentTimeMillis();
+	System.out.println("Testing mergeSort on array of size 100......\n");
 	MergeSort.sort(arr);
-	double b = System.currentTimeMillis();
-	System.out.println("Time= " + (b-a));
+	double n = System.currentTimeMillis();
+	System.out.println("Time= " + (n-m));
 
     }//end main
 
