@@ -15,3 +15,10 @@ arrays we used to test it were generated using random numbers( Math.random() ).
 	
 	
 Our data from the tests can be found here: https://docs.google.com/document/d/1hX4gjmZuN02E8FFHmvnUpkgZ59ff1-vrnMRIiKP7i-4/pub
+
+Run time: O(nlogn)
+
+When the arrays are split, the arrays are split about log<sub>2</sub>n times. Since it takes the same
+amount of merges, this part of the algorithm would be 2log<sub>2</sub>n, and the two is dropped to make
+it logn. When merging, it has to go through the arrays to sort them. It goes through the arrays n times
+the number of times it is split/merged, or nlogn.
