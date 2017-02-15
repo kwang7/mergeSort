@@ -22,13 +22,13 @@ Sort:
 
 
   BIG-OH CLASSIFICATION OF ALGORITHM:
-  <INSERT YOUR EXECUTION TIME CATEGORIZATION OF MERGESORT HERE>
+  O( n log(n) )
 
   Mean execution times for dataset of size n:
   Batch size: <# of times each dataset size was run>
-  n=1       time: 
-  n=10      time: 
-  n=100     time: 
+  n=1       time: 3.1 ms
+  n=10      time: 14 ms
+  n=100     time: 131.1 ms
   ...
   n=<huge>  time: 
 
