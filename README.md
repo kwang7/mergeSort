@@ -12,3 +12,6 @@ arrays we used to test it were generated using random numbers( Math.random() ).
 2. System.currentTimeMillis()
 	We used this to test arrays of various sizes, and focused on larger ones that couldn't be tested
 	using print statements. 
+	
+	
+Our data from the tests can be found here: https://docs.google.com/document/d/1hX4gjmZuN02E8FFHmvnUpkgZ59ff1-vrnMRIiKP7i-4/pub
